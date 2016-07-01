@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SARControlLib;Component/Resources/WPFStyle/ColorResource1.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    <ControlTemplate x:Key="ComTogg" TargetType="ToggleButton">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="36"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+			<Border x:Name="frame" Grid.ColumnSpan="2" CornerRadius="4" Background="#FF3996FF" BorderBrush="#FF3996FF"/>
+			<Border x:Name="Border" Margin="1" Grid.ColumnSpan="2" CornerRadius="4" Background="{StaticResource BackNullBrush}"></Border>
+            <Border x:Name="Mask" Visibility="Hidden" Grid.ColumnSpan="2" CornerRadius="3" Margin="4" Background="{DynamicResource BackSolidBrush}"></Border>
+            <Border Grid.Column="0" CornerRadius="3" Margin="3"></Border>
+            <Border x:Name="Arrow" Grid.Column="1" CornerRadius="3" Margin="4">
+                <Image Width="7" Height="3" Margin="4" Source="/SARControlLib;Component/Resources/images/check_xp_new.png"></Image>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Mask" Property="Visibility" Value="Visible"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource BackSolidBrush}"></Setter>                             
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>  
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="FontFamily" Value="Microsoft YaHei"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource FontBtnBrush}"></Setter>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Grid>
+                        <ToggleButton Grid.Column="2" Name="ToggleButton" Template="{StaticResource ComTogg}" IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+ Focusable="False" ClickMode="Press">                            
+                        </ToggleButton>
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8 2 2 2" IsHitTestVisible="True" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"></ContentPresenter>
+                        <Popup Name="pop" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                            <Grid Name="dropcontent" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}"
+              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                <Border Name="DownBorder" CornerRadius="4" Margin="0,1,0,0" BorderThickness="2" Background="{StaticResource BackNullBrush}"></Border>
+                                <ScrollViewer Margin="4" SnapsToDevicePixels="True">
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.TabNavigation="Contained"></StackPanel>
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter TargetName="DownBorder" Property="MinHeight" Value="95"/>
+                        </Trigger>                        
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Border Name="Border" Padding="0 0 0 0" Margin="4" CornerRadius="3" SnapsToDevicePixels="True">
+                        <ContentPresenter></ContentPresenter>                        
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="White"></Setter>
+                            <Setter Property="Foreground" Value="{StaticResource BackNullBrush}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

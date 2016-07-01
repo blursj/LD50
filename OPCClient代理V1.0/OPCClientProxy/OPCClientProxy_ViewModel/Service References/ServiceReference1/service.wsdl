@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OPCClientProxyServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IOPCClientProxy_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ACUServer" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOPCClientProxy_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_BeatHeart_InputMessage">
+    <wsdl:part name="parameters" element="tns:BeatHeart" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_SendPLCData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPLCData" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_SendPLCData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPLCDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_SendDolPhinData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDolPhinData" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_SendDolPhinData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDolPhinDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_SetDolPointValue_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetDolPointValue" />
+  </wsdl:message>
+  <wsdl:message name="IOPCClientProxy_SetDolPointValue_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetDolPointValueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOPCClientProxy">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOPCClientProxy/Login" message="tns:IOPCClientProxy_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOPCClientProxy/LoginResponse" message="tns:IOPCClientProxy_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BeatHeart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOPCClientProxy/BeatHeart" message="tns:IOPCClientProxy_BeatHeart_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPLCData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOPCClientProxy/SendPLCData" message="tns:IOPCClientProxy_SendPLCData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOPCClientProxy/SendPLCDataResponse" message="tns:IOPCClientProxy_SendPLCData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDolPhinData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOPCClientProxy/SendDolPhinData" message="tns:IOPCClientProxy_SendDolPhinData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOPCClientProxy/SendDolPhinDataResponse" message="tns:IOPCClientProxy_SendDolPhinData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDolPointValue">
+      <wsdl:output wsaw:Action="http://tempuri.org/IOPCClientProxy/SetDolPointValue" message="tns:IOPCClientProxy_SetDolPointValue_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IOPCClientProxy/SetDolPointValueResponse" message="tns:IOPCClientProxy_SetDolPointValue_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IOPCClientProxy" type="tns:IOPCClientProxy">
+    <wsp:PolicyReference URI="#NetTcpBinding_IOPCClientProxy_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IOPCClientProxy/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeatHeart">
+      <soap12:operation soapAction="http://tempuri.org/IOPCClientProxy/BeatHeart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SendPLCData">
+      <soap12:operation soapAction="http://tempuri.org/IOPCClientProxy/SendPLCData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDolPhinData">
+      <soap12:operation soapAction="http://tempuri.org/IOPCClientProxy/SendDolPhinData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDolPointValue">
+      <soap12:operation soapAction="http://tempuri.org/IOPCClientProxy/SetDolPointValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OPCClientProxyServer">
+    <wsdl:port name="NetTcpBinding_IOPCClientProxy" binding="tns:NetTcpBinding_IOPCClientProxy">
+      <soap12:address location="net.tcp://localhost:9694/acuservice" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9694/acuservice</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

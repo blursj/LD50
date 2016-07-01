@@ -1,0 +1,372 @@
+﻿<Page x:Class="ISafe_UserClient.DOLPHINShowPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:MyCtrl="clr-namespace:SARControlLib;assembly=SARControlLib"
+      mc:Ignorable="d" 
+      xmlns:converter="clr-namespace:ISafe_UserClient"
+      d:DesignHeight="800" d:DesignWidth="1300"
+	Title="DOLPHINShowPage">
+    <Grid Margin="10">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <converter:StringToBrushCvert x:Key="cvert1"/>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" Text="延炼首站" FontSize="15.5" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" Text="3#阀室（福地水库）" FontSize="15.5" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Grid.Row="0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" Text="5#阀室（孙家河）" FontSize="15.5" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Grid.Row="0" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" Text="铜川清管站" FontSize="15.5" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Grid.Row="0" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" Text="7#阀室（清裕河）" FontSize="15.5" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Grid.Row="0" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" Text="西安输油末站" FontSize="15.5" Foreground="White" FontWeight="Bold"/>
+
+            <MyCtrl:SARSeparator Grid.Row="1" Grid.ColumnSpan="12" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="管道长度" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="管道声速" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组1检测值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组2检测值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组1动态阀值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组2动态阀值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="9" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组1低阀值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组1高阀值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="11" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组2低阀值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="12" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组2高阀值" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="13" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组1间距（m）" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="14" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器组2间距（m）" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="15" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器1/3状态" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="16" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="传感器2/4状态" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="17" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="网络状态" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="18" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5" Text="GPS状态" FontSize="14" Foreground="White"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe0length}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe0speed}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe1length}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe1speed}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="3" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe2length}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="4" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe2speed}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="3" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe3length}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="4" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe3speed}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="3" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe4length}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="4" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Pipe4speed}" FontSize="14" Foreground="White"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0sensor0calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock Visibility="Hidden"  Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock Visibility="Hidden" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="" FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="9" Text="{Binding DOLPHINMSGManager.Site0sensor0threshold0}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="10" Text="{Binding DOLPHINMSGManager.Site0sensor0threshold1}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="11" Visibility="Hidden" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="12" Visibility="Hidden" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBlock Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0sensor0space}" FontSize="14" Foreground="White"/>
+            <TextBlock Visibility="Hidden" Grid.Row="14" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="15" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site0sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="15" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site0sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="17" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site0netstate,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="17" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0netstate}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="18" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site0GPSState,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="18" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site0GPSState}" FontSize="14" Foreground="White"/>
+            <Button Grid.Row="19" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="软启动" Click="Button_Click" Tag="site0.reset"/>
+            <Button Grid.Row="20" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="重启" Click="Button_Click" Tag="site0.restart"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor0calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor1calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor1dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="9" Text="{Binding DOLPHINMSGManager.Site1sensor0threshold0}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="10" Text="{Binding DOLPHINMSGManager.Site1sensor0threshold1}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="11" Text="{Binding DOLPHINMSGManager.Site1sensor1threshold0}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="12" Text="{Binding DOLPHINMSGManager.Site1sensor1threshold1}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBlock Grid.Row="13" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor0space}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="14" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor1space}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="15" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site1sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="15" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="16" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site1sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="16" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1sensor1state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="17" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site1netstate,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="17" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1netstate}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="18" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site1GPSState,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="18" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site1GPSState}" FontSize="14" Foreground="White"/>
+            <Button Grid.Row="19" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="软启动"  Click="Button_Click" Tag="site1.reset"/>
+            <Button Grid.Row="20" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="重启" Click="Button_Click" Tag="site1.restart"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor0calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="6" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor1calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="8" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor1dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="9" Text="{Binding DOLPHINMSGManager.Site2sensor0threshold0}" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="10" Text="{Binding DOLPHINMSGManager.Site2sensor0threshold1}" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="11" Text="{Binding DOLPHINMSGManager.Site2sensor1threshold0}" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="12" Text="{Binding DOLPHINMSGManager.Site2sensor1threshold1}" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBlock Grid.Row="13" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor0space}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="14" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor1space}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="15" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"  Background="{Binding DOLPHINMSGManager.Site2sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="15" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="16" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"  Background="{Binding DOLPHINMSGManager.Site2sensor1state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="16" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2sensor1state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="17" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"  Background="{Binding DOLPHINMSGManager.Site2netstate,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="17" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2netstate}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="18" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"  Background="{Binding DOLPHINMSGManager.Site2GPSState,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="18" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site2GPSState}" FontSize="14" Foreground="White"/>
+            <Button Grid.Row="19" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="软启动" Click="Button_Click" Tag="site2.reset"/>
+            <Button Grid.Row="20" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="重启" Click="Button_Click" Tag="site2.restart"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3sensor0calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="6" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3sensor1calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="8" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3sensor1dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="9" Text="{Binding DOLPHINMSGManager.Site3sensor0threshold0}" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="10" Text="{Binding DOLPHINMSGManager.Site3sensor0threshold1}" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="11" Text="{Binding DOLPHINMSGManager.Site3sensor1threshold0}" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="12" Text="{Binding DOLPHINMSGManager.Site3sensor1threshold1}" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBlock Grid.Row="13" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3sensor0space}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="14" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3sensor1space}" FontSize="14" Foreground="White"/>
+            
+            <Grid Grid.Row="15" Grid.Column="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border Cursor="3"  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site3sensor0state0,Converter={StaticResource cvert1}}"/>
+                <TextBlock  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0" Text="{Binding DOLPHINMSGManager.Site3sensor0state0}" FontSize="14" Foreground="White"/>
+                <Border Cursor="3"  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site3sensor0state1,Converter={StaticResource cvert1}}"/>
+                <TextBlock  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0" Text="{Binding DOLPHINMSGManager.Site3sensor0state1}" FontSize="14" Foreground="White"/>
+            </Grid>
+
+            <Grid Grid.Row="16" Grid.Column="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border Cursor="3"  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site3sensor1state0,Converter={StaticResource cvert1}}"/>
+                <TextBlock  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0" Text="{Binding DOLPHINMSGManager.Site3sensor1state0}" FontSize="14" Foreground="White"/>
+                <Border Cursor="3"  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site3sensor1state1,Converter={StaticResource cvert1}}"/>
+                <TextBlock  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0" Text="{Binding DOLPHINMSGManager.Site3sensor1state1}" FontSize="14" Foreground="White"/>
+            </Grid>
+
+            <Border Cursor="3"  Grid.Row="17" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site3netstate,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="17" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3netstate}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="18" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site3GPSState,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="18" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site3GPSState}" FontSize="14" Foreground="White"/>
+            <Button Grid.Row="19" Grid.Column="7"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="软启动"  Click="Button_Click" Tag="site3.reset"/>
+            <Button Grid.Row="20" Grid.Column="7"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="重启" Click="Button_Click" Tag="site3.restart"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor0calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="6" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor1calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock  Grid.Row="8" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor1dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="9" Text="{Binding DOLPHINMSGManager.Site4sensor0threshold0}" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="10" Text="{Binding DOLPHINMSGManager.Site4sensor0threshold1}" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="11" Text="{Binding DOLPHINMSGManager.Site4sensor1threshold0}" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="12" Text="{Binding DOLPHINMSGManager.Site4sensor1threshold1}" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBlock Grid.Row="13" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor0space}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="14" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor1space}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="15" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site4sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="15" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="16" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site4sensor1state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="16" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4sensor1state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="17" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site4netstate,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="17" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4netstate}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="18" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site4GPSState,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="18" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site4GPSState}" FontSize="14" Foreground="White"/>
+            <Button Grid.Row="19" Grid.Column="9"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="软启动"  Click="Button_Click" Tag="site4.reset"/>
+            <Button Grid.Row="20" Grid.Column="9"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="重启" Click="Button_Click" Tag="site4.restart"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5sensor0calculation}" FontSize="14" Foreground="White"/>
+            <TextBlock Visibility="Hidden"  Grid.Row="6" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock Grid.Row="7" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5sensor0dythreshold}" FontSize="14" Foreground="White"/>
+            <TextBlock Visibility="Hidden" Grid.Row="8" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="" FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="9" Text="{Binding DOLPHINMSGManager.Site5sensor0threshold0}" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="10" Text="{Binding DOLPHINMSGManager.Site5sensor0threshold1}" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="11" Visibility="Hidden" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBox Grid.Row="12" Visibility="Hidden" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80"/>
+            <TextBlock Grid.Row="13" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5sensor0space}" FontSize="14" Foreground="White"/>
+            <TextBlock Visibility="Hidden" Grid.Row="14" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="15" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site5sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="15" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="16" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site5sensor0state0,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="16" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5sensor0state0}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="17" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site5netstate,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="17" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5netstate}" FontSize="14" Foreground="White"/>
+            <Border Cursor="3"  Grid.Row="18" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="80" Background="{Binding DOLPHINMSGManager.Site5GPSState,Converter={StaticResource cvert1}}"/>
+            <TextBlock Grid.Row="18" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,5" Text="{Binding DOLPHINMSGManager.Site5GPSState}" FontSize="14" Foreground="White"/>
+            <Button Grid.Row="19" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="软启动" Click="Button_Click" Tag="site5.reset"/>
+            <Button Grid.Row="20" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Height="26" Width="80" Content="重启" Click="Button_Click" Tag="site5.restart"/>
+
+
+        </Grid>
+
+        <GroupBox Grid.Row="1" Header="DOLPHIN定位报警信息" Margin="0,10,0,0">
+            <DataGrid x:Name="datagrid1" AutoGenerateColumns="False" CanUserAddRows="False" VerticalAlignment="Top" ItemsSource="{Binding DolLoactions,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.RowHeaderStyle>
+                    <Style TargetType="DataGridRowHeader">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Width" Value="20"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.RowHeaderStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="距离首站位置(m)" Binding="{Binding LinePos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="泄漏发生管段索引号" Binding="{Binding Pipe}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="泄漏发生管段名称" Binding="{Binding PipeName}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="距离泄漏管段首端站点位置(m)" Binding="{Binding Pos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="距离末站位置(m)" Binding="{Binding RlinePos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="距离泄漏管段末端站点位置(m)" Binding="{Binding RPos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="泄漏发生时刻" Binding="{Binding ShowTime}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="泄漏发生时刻(UTC时间)" Binding="{Binding Time}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="泄漏坐标(x轴)" Binding="{Binding X}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="泄漏坐标(y轴)" Binding="{Binding Y}" IsReadOnly="False"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        
+    </Grid>
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Column="1" Grid.Row="1" Header="DOLPHIN定位报警信息">
+            <DataGrid  AutoGenerateColumns="False" CanUserAddRows="False" VerticalAlignment="Top" ItemsSource="{Binding DolLoactions,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="linepos" Binding="{Binding LinePos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="pipe" Binding="{Binding Pipe}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="pipename" Binding="{Binding PipeName}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="pos" Binding="{Binding Pos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="rlinepos" Binding="{Binding RlinePos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="rpos" Binding="{Binding RPos}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="showtime" Binding="{Binding ShowTime}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="time" Binding="{Binding Time}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="x" Binding="{Binding X}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="y" Binding="{Binding Y}" IsReadOnly="False"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <GroupBox Grid.ColumnSpan="2" Grid.Row="0" Header="DOLPHIN站点信息" >
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding DolSites}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate >
+                            <Border Margin="5" BorderBrush="Green" BorderThickness="1.2" CornerRadius="2">
+                                <StackPanel Orientation="Vertical">
+                                    <DataGrid Margin="5" ItemsSource="{Binding DolPoints}" AutoGenerateColumns="False" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="变量名称" Binding="{Binding Name}" IsReadOnly="False"/>
+                                            <DataGridTextColumn Header="变量值" Binding="{Binding Value}" IsReadOnly="False"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+
+                                    <DataGrid Margin="5" ItemsSource="{Binding Sensors}" AutoGenerateColumns="False" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTemplateColumn Header="传感器组信息">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <DataGrid ItemsSource="{Binding SensorPoints}" AutoGenerateColumns="False" CanUserAddRows="False">
+                                                            <DataGrid.Columns>
+                                                                <DataGridTextColumn Header="变量名称" Binding="{Binding Name}" IsReadOnly="False"/>
+                                                                <DataGridTextColumn Header="变量值" Binding="{Binding Value}" IsReadOnly="False"/>
+                                                            </DataGrid.Columns>
+                                                        </DataGrid>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+
+        <GroupBox Grid.Column="0" Grid.Row="1" Header="DOLPHIN管段信息">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding DolPipes}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="5" BorderBrush="Green" BorderThickness="1.2" CornerRadius="2">
+                                <StackPanel Orientation="Vertical">
+                                    <DataGrid Margin="5" ItemsSource="{Binding DolPipePoints}" AutoGenerateColumns="False" CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="变量名称" Binding="{Binding Name}" IsReadOnly="False"/>
+                                            <DataGridTextColumn Header="变量值" Binding="{Binding Value}" IsReadOnly="False"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+
+    </Grid>-->
+</Page>

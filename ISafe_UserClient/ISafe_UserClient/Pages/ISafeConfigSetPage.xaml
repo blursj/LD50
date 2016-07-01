@@ -1,0 +1,658 @@
+﻿<Page x:Class="ISafe_UserClient.ISafeConfigSetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ISafe_UserClient"
+      mc:Ignorable="d" 
+      xmlns:converter="clr-namespace:ISafe_UserClient"
+      d:DesignHeight="500" d:DesignWidth="800"
+	>
+    <Page.Resources>
+        <ResourceDictionary>
+            <converter:StringToImageCvert x:Key="cvert1"/>
+            <converter:BoolToStringCvert x:Key="cvert2"/>
+            <converter:BoolToColorCvert x:Key="cvert3"/>
+            <converter:BoolToStringCvert1 x:Key="cvert4"/>
+            <converter:IntToStringCvert x:Key="cvert5"/>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" Grid.Row="0" BorderBrush="Green" BorderThickness="1.5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <Button Height="26" Width="120" Content="LD50系统配置" Margin="2,4,2,2" Tag="0" Click="Button_Click_1"/>
+                    <!--<Button Height="26" Width="120" Content="LD100系统配置" Margin="2,4,2,2" Tag="1" Click="Button_Click_1" Visibility="Visible"/>-->
+                    <Button Height="26" Width="120" Content="OPCClient代理配置" Margin="2,4,2,2" Tag="2" Click="Button_Click_1"/>
+                </StackPanel>
+                <!--<StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Top" Margin="0,50,0,0">
+                    <Button Height="26" Width="120" Content="一键启动LD50系统" Margin="2,4,2,2"/>
+                    <Button Height="26" Width="120" Content="一键停止LD50系统" Margin="2,4,2,2"/>
+                    <Button Height="26" Width="120" Content="一键启动LD100系统" Margin="2,4,2,2" Visibility="Visible"/>
+                    <Button Height="26" Width="120" Content="一键停止LD100系统" Margin="2,4,2,2" Visibility="Visible"/>
+                </StackPanel>-->
+            </Grid>
+        </Border>
+
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            
+            <Grid x:Name="panel1" Visibility="Visible">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <ScrollViewer Grid.Row="0">
+
+                            <GroupBox Header="压力变送器列表" BorderBrush="Green" BorderThickness="1.5" >
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Button Grid.Row="0" Width="120" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Content="保存修改" Command="{Binding PipeSitesManager.SavePipeSites}" Margin="0,0,5,0"/>
+                                    <DataGrid AutoGenerateColumns="False"  CanUserAddRows="False" Grid.Row="1" ItemsSource="{Binding PipeSitesManager.PipeSiteCollection}">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="站点索引号" Binding="{Binding SiteIndex}"/>
+                                            <DataGridTextColumn Header="站点名称" Binding="{Binding Name}"/>
+                                            <DataGridTextColumn Header="采集频率" Binding="{Binding PressureReq}"/>
+                                            <DataGridTextColumn Header="SamplePerBlock" Binding="{Binding SamplePerBlock,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            <DataGridTextColumn Header="DataBufferSize" Binding="{Binding DataBufferSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+                                            <DataGridTemplateColumn Header="站点内压力传感器列表">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <DataGrid AutoGenerateColumns="False"  CanUserAddRows="False" ItemsSource="{Binding Children_next}">
+                                                            <DataGrid.Columns>
+                                                                <DataGridTextColumn Header="索引号" Binding="{Binding PreSensorID}" />
+                                                                <DataGridTextColumn Header="OPC点ID" Binding="{Binding OPCPointID}"/>
+                                                                <DataGridTemplateColumn Header="是否工作正常">
+                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                        <DataTemplate>
+                                                                            <TextBlock Text="{Binding IsLink,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding IsLink,Converter={StaticResource cvert3},Mode=OneWay}"/>
+                                                                        </DataTemplate>
+                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                </DataGridTemplateColumn>
+                                                                <DataGridTextColumn Header="最大检测门限" Binding="{Binding ThreshMax,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                                                <DataGridTextColumn Header="最小检测门限" Binding="{Binding ThreshMin,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                                                <DataGridTemplateColumn Header="监控管段列表">
+                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                        <DataTemplate>
+                                                                            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding SegmentPipes}">
+                                                                                <DataGrid.Columns>
+                                                                                    <DataGridTemplateColumn Header="监控管段">
+                                                                                        <DataGridTemplateColumn.CellTemplate>
+                                                                                            <DataTemplate>
+                                                                                                <ComboBox Height="25" Width="100" DisplayMemberPath="PipeName" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.PipesManager.TotalPipes,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding MoniterPipe,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                                                                            </DataTemplate>
+                                                                                        </DataGridTemplateColumn.CellTemplate>
+                                                                                    </DataGridTemplateColumn>
+                                                                                    <DataGridTemplateColumn Header="处于管段方位">
+                                                                                        <DataGridTemplateColumn.CellTemplate>
+                                                                                            <DataTemplate>
+                                                                                                <Grid>
+                                                                                                    <ComboBox Height="25" Width="100" SelectedIndex="{Binding SegmentLocation}">
+                                                                                                        <ComboBoxItem Content="上游"/>
+                                                                                                        <ComboBoxItem Content="下游"/>
+                                                                                                    </ComboBox>
+                                                                                                </Grid>
+                                                                                            </DataTemplate>
+                                                                                        </DataGridTemplateColumn.CellTemplate>
+                                                                                    </DataGridTemplateColumn>
+                                                                                    <DataGridTemplateColumn Header="操作">
+                                                                                        <DataGridTemplateColumn.CellTemplate>
+                                                                                            <DataTemplate>
+                                                                                                <Grid>
+                                                                                                    <Button Height="25" Width="80" VerticalAlignment="Top" Content="删除" Command="{Binding RemoveSegmentPipe}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                                                                </Grid>
+                                                                                            </DataTemplate>
+                                                                                        </DataGridTemplateColumn.CellTemplate>
+                                                                                    </DataGridTemplateColumn>
+
+                                                                                </DataGrid.Columns>
+                                                                            </DataGrid>
+                                                                        </DataTemplate>
+                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                </DataGridTemplateColumn>
+
+                                                                <DataGridTemplateColumn Header="操作">
+                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                        <DataTemplate>
+                                                                            <WrapPanel Orientation="Vertical">
+                                                                                <Button  Height="25" Width="120" Content="添加监控管段"  Command="{Binding AddSegmentPipe}" />
+                                                                                <Button  Height="25" Width="120" Content="删除该传感器"  Command="{Binding RemovePreSensor}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                                                <Button  Height="25" Width="120" Content="门限值调整"  Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.PipeSitesManager.ResetThresh}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                                            </WrapPanel>
+                                                                        </DataTemplate>
+                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                </DataGridTemplateColumn>
+                                                            </DataGrid.Columns>
+                                                        </DataGrid>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn Header="操作">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Button  Height="25" Width="120" Content="添加压力传感器" VerticalAlignment="Top" Command="{Binding AddPreSensor}"/>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+
+                                    </DataGrid>
+                                </Grid>
+
+                            </GroupBox>
+
+
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="1.5*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+
+                            <GroupBox Margin="0,5,0,0" Grid.Row="1" Header="管段列表" >
+                                <StackPanel>
+                                    <GroupBox Header="原始管段列表" BorderBrush="Green" BorderThickness="2">
+                                        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding PipesManager.Pipes}">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="管段索引号" Binding="{Binding PipeIndex}" IsReadOnly="True"/>
+                                                <DataGridTextColumn Header="管段名称" Binding="{Binding PipeName}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="传播速度0" Binding="{Binding Speed0}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="传播速度1" Binding="{Binding Speed1}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="传播时间门限" Binding="{Binding TimeThreshold}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="管段长度" Binding="{Binding PipeLength}" IsReadOnly="False"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </GroupBox>
+                                    <GroupBox Header="组合管段列表"  BorderBrush="Green" BorderThickness="2">
+                                        <StackPanel>
+                                            <WrapPanel Orientation="Horizontal">
+                                                <Button Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,2,4,2" Content="增加组合管段" Command="{Binding PipesManager.AddCombinePipe}"/>
+                                                <Button Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,2,4,2" Content="保存修改" Command="{Binding PipesManager.SavePipeSet}"/>
+                                            </WrapPanel>
+
+                                            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding PipesManager.CombinePipes}">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="管段索引号" Binding="{Binding PipeIndex}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="管段名称" Binding="{Binding PipeName}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="传播速度0" Binding="{Binding Speed0}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="传播速度1" Binding="{Binding Speed1}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="传播时间门限" Binding="{Binding TimeThreshold}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="管段长度" Binding="{Binding PipeLength}" IsReadOnly="False"/>
+                                                    <DataGridTemplateColumn>
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Grid>
+                                                                    <Button Height="25" Width="80" Content="删除" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.PipesManager.RemoveCombimePipe}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+
+                                    </GroupBox>
+                                </StackPanel>
+
+                            </GroupBox>
+                        </StackPanel>
+                        <GroupBox Grid.Row="1" Header="配置信息" BorderBrush="Green" BorderThickness="2">
+                            <ScrollViewer>
+                                <ListBox ItemsSource="{Binding RuningMSG}" VerticalAlignment="Top">
+
+                                </ListBox>
+                            </ScrollViewer>
+                        </GroupBox>
+                    </Grid>
+                </Grid>
+            </Grid >
+            
+            
+            <!--<Grid x:Name="panel2" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <DataGrid Grid.Row="0" x:Name="ACUList" Margin="5" CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding ACUDevicesManager.ACUDevices}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ACU设备名称" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="IP地址" Binding="{Binding IP}"/>
+                        <DataGridTemplateColumn Header="服务器连接状态">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IsLink,Converter={StaticResource cvert2}}" Foreground="{Binding IsLink,Converter={StaticResource cvert3},Mode=OneWay}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="运行状态" Binding="{Binding ACUWorkState,Converter={StaticResource cvert5}}"/>
+                        <DataGridTemplateColumn Header="操作">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <WrapPanel Orientation="Horizontal" >
+                                        <Button Content="重置ACU" Height="27" Width="80" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.ACUDevicesManager.ResetACU}"  CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                        <Button Content="运行时调整算法参数" Height="27" Width="150" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.ACUDevicesManager.ResetAlgorthm}"  CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                        <Button IsEnabled="{Binding IsLink}" Content="启动" Height="27" Width="80" Margin="5,0,0,0"  Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.ACUDevicesManager.StartACU}"  CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                        <Button IsEnabled="{Binding IsLink}" Content="停止" Height="27" Width="80" Margin="5,0,0,0" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.ACUDevicesManager.StopACU}"  CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                        <Button Content="修改配置" Height="27" Width="80" Margin="5,0,0,0"/>
+                                    </WrapPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Margin="5,0,5,0" DataContext="{Binding ElementName=ACUList,Path=SelectedItem,Mode=TwoWay}" Grid.Column="1" BorderBrush="Green" BorderThickness="2">
+                        <GroupBox.Header>
+                            <WrapPanel Orientation="Horizontal">
+                                <TextBlock Text="选中ACU设备:"/>
+                                <TextBlock Text="{Binding Name}"/>
+                            </WrapPanel>
+                        </GroupBox.Header>
+                        <ScrollViewer>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" Margin="0,8,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="传感器组列表"  VerticalAlignment="Center"  Grid.Column="0" HorizontalAlignment="Left" />
+                                    <Button Height="27" Width="80" Grid.Column="1" HorizontalAlignment="Right" Content="添加" Command="{Binding AddSensorPair}"/>
+                                </Grid>
+
+                                <Border Background="Black" Height="1.5" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,3,0,3"/>
+                                <DataGrid ItemsSource="{Binding Children}" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False">
+                                    <DataGrid.Columns >
+                                        <DataGridTextColumn Header="传感器对索引号" Binding="{Binding SensorPairIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="偏移量" Binding="{Binding Offset,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="最低阀值" Binding="{Binding Minninum_Threshold,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="阀值增益" Binding="{Binding Threshold_Multiplier,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="传感器间隔" Binding="{Binding Space}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="信号延迟" Binding="{Binding A_to_B_Signal_Delay,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="第一级增益" Binding="{Binding Gain1,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+                                        <DataGridTextColumn Header="第二级增益" Binding="{Binding Gain2,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="false"/>
+
+                                        <DataGridTemplateColumn Header="监控管段索引">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <ComboBox Height="26" Width="100" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.PipesManager.TotalPipes}" DisplayMemberPath="PipeIndex" SelectedItem="{Binding LinkPipe,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                                    </WrapPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="操作">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <Button Height="26" Width="100" Content="添加传感器" Command="{Binding AddSensor}"/>
+                                                        <Button Height="26" Width="100" Content="删除" Command="{Binding DelSensorPair}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                    </WrapPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Grid Grid.Row="3" Margin="0,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="传感器列表" VerticalAlignment="Center"  Grid.Column="0" HorizontalAlignment="Left" />
+                                    <Button Height="27" Width="80" Grid.Column="1" HorizontalAlignment="Right" Content="添加"/>
+                                </Grid>
+
+                                <Border Background="Black" Height="1.5" Grid.Row="4" HorizontalAlignment="Stretch" Margin="0,3,0,3"/>
+                                <DataGrid ItemsSource="{Binding AllSensors}" Grid.Row="5" AutoGenerateColumns="False" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="传感器索引号" Binding="{Binding SensorIndex}" IsReadOnly="False"/>
+                                        <DataGridCheckBoxColumn Header="是否为主传感器" Binding="{Binding IsMainSensor}"/>
+                                        <DataGridTextColumn Header="所属传感器组索引" Binding="{Binding BelongSensorPair.SensorPairIndex}" IsReadOnly="True"/>
+                                        <DataGridTemplateColumn Header="连接的通道组">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <ComboBox Height="26" Width="100" ItemsSource="{Binding ElementName=ACUList,Path=SelectedItem.PCIModel.ChannelGroups}" DisplayMemberPath="GroupIndex" SelectedItem="{Binding LinkChannelGroup,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </WrapPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn Header="操作">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <Button Height="26" Width="100" Content="删除" Command="{Binding DelSensor}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                    </WrapPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Border Background="Black" Height="1.5" Grid.Row="6" HorizontalAlignment="Stretch" Margin="0,3,0,3"/>
+                                <GroupBox Margin="0,8,0,0" Grid.Row="7" Header="ACU基础信息设置" BorderBrush="Green" BorderThickness="2">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,5,0,0" Text="ACU索引号：" Grid.Column="0" Grid.Row="0"/>
+                                        <TextBox Text="{Binding Index}" Margin="0,5,0,0" HorizontalAlignment="Left" Height="27" Width="120" Grid.Column="1" Grid.Row="0"/>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Right" Text="传输介质类型：" Grid.Column="2" Grid.Row="0"/>
+                                        <ComboBox Margin="0,5,0,0" Height="27" HorizontalAlignment="Left" Width="120" Grid.Column="3" Grid.Row="0" SelectedIndex="{Binding MEDIUM}">
+                                            <ComboBoxItem Content="气体"/>
+                                            <ComboBoxItem Content="液体"/>
+                                        </ComboBox>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Right" Text="站点名称" Grid.Column="4" Grid.Row="0"/>
+                                        <TextBox Text="{Binding Name}" Margin="0,5,0,0" Height="27" HorizontalAlignment="Left" Width="200" Grid.Column="5" Grid.Row="0"/>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,5,0,0" Text="IP地址：" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1"/>
+                                        <TextBox Text="{Binding IP}" IsReadOnly="True" Margin="0,5,0,0" Height="27" HorizontalAlignment="Left" Width="120" Grid.Column="1" Grid.Row="1"/>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,5,0,0" Text="静音区："  HorizontalAlignment="Right" Grid.Column="2" Grid.Row="1"/>
+                                        <TextBox Text="{Binding Muting_Zone}" Margin="0,5,0,0" HorizontalAlignment="Left" Height="27" Width="120" Grid.Column="3" Grid.Row="1"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Margin="0,8,0,0" Grid.Row="8" Header="GPS配置" BorderBrush="Green" BorderThickness="2">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="PPS采样率" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="0,8,0,0"/>
+                                        <TextBox Grid.Column="1" Text="{Binding GPSData.SampleRate}" Grid.Row="0" Width="100" Height="27" VerticalAlignment="Center" Margin="0,8,0,0"/>
+                                        <TextBlock Text="最大时间延迟" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Margin="5,8,0,0"/>
+                                        <TextBox Grid.Column="3" Text="{Binding GPSData.MaxTimeStrDelay}" Grid.Row="0" Width="100" Height="27" VerticalAlignment="Center" Margin="0,8,0,0"/>
+                                        <TextBlock Text="波特率" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" Margin="5,8,0,0"/>
+                                        <ComboBox Grid.Column="5" SelectedIndex="{Binding GPSData.Rate_Index}" Grid.Row="0" Width="100" Height="27" VerticalAlignment="Center" Margin="0,8,0,0">
+                                            <ComboBoxItem Content="600"/>
+                                            <ComboBoxItem Content="1200"/>
+                                            <ComboBoxItem Content="2400"/>
+                                            <ComboBoxItem Content="4800"/>
+                                            <ComboBoxItem Content="9600"/>
+                                            <ComboBoxItem Content="19200"/>
+                                            <ComboBoxItem Content="38400"/>
+                                        </ComboBox>
+                                        <TextBox Text="{Binding GPSData.ThreshPPS}" Grid.Column="1" Grid.Row="1" Width="100" Height="27" VerticalAlignment="Center" Margin="0,8,0,0"/>
+                                        <TextBlock Text="PPS信号阀值" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="5,8,0,0"/>
+                                        <TextBlock Text="串口连接" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="5,8,0,0"/>
+                                        <ComboBox Grid.Column="3" SelectedIndex="{Binding GPSData.COMM_Index}" Grid.Row="1" Width="100" Height="27" VerticalAlignment="Center" Margin="0,8,0,0">
+                                            <ComboBoxItem Content="COM1"/>
+                                            <ComboBoxItem Content="COM2"/>
+                                            <ComboBoxItem Content="COM3"/>
+                                            <ComboBoxItem Content="COM4"/>
+                                        </ComboBox>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Margin="0,8,0,0" Grid.Row="9" Header="PCI采集板卡配置" BorderBrush="Green" BorderThickness="2">
+                                    <WrapPanel Orientation="Horizontal">
+                                        <Grid >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Margin="0,5,0,0" HorizontalAlignment="Right" Text="采集稀释度：" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBox Margin="0,5,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding PCIModel.DiluteSign,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Height="27" />
+                                            <TextBlock Margin="0,5,0,0" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="3"  Text="读取时间间隔：" VerticalAlignment="Center" />
+                                            <TextBox Margin="0,5,0,0" Grid.Row="0" Grid.Column="4"  Text="{Binding  PCIModel.ReadStep,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Height="27" />
+                                            <TextBlock Margin="0,5,0,0" Grid.Row="0" Grid.Column="5"  Text="m" VerticalAlignment="Center"/>
+
+                                            <TextBlock Margin="0,5,0,0" HorizontalAlignment="Right"  Grid.Row="1" Grid.Column="0" Text="通道数量：" VerticalAlignment="Center"/>
+                                            <TextBox  Margin="0,5,0,0" Grid.Row="1" Grid.Column="1" Text="{Binding PCIModel.ChanelNums,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Height="27" />
+                                            <TextBlock HorizontalAlignment="Right" Margin="0,5,0,0" Grid.Row="1" Grid.Column="3" Text="采集频率：" VerticalAlignment="Center"/>
+                                            <TextBox Margin="0,5,0,0" Grid.Row="1" Grid.Column="4" Text="{Binding  PCIModel.Frequency,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Height="27" />
+                                            <TextBlock Margin="0,5,0,0" Grid.Row="1" Grid.Column="5" Text="Hz" VerticalAlignment="Center"/>
+
+
+
+                                            <TextBlock Margin="0,5,0,0" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Text="触发模式选择：" VerticalAlignment="Center"/>
+                                            <ComboBox Margin="0,5,0,0" Grid.Row="2" Grid.Column="1" Width="120" Height="27"  SelectedIndex="{Binding PCIModel.TriggerMode,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <ComboBoxItem Content="软件内触发"/>
+                                                <ComboBoxItem Content="软件外触发"/>
+                                            </ComboBox>
+                                            <TextBlock HorizontalAlignment="Right" Margin="0,5,0,0" Grid.Row="2" Grid.Column="3" Text="触发源选择：" VerticalAlignment="Center" />
+                                            <ComboBox Margin="0,5,0,0" Grid.Row="2" Grid.Column="4" Width="120" Height="27"  SelectedIndex="{Binding PCIModel.TriggerSource,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <ComboBoxItem Content="外部ATR触发源"/>
+                                                <ComboBoxItem Content="外部DTR触发源"/>
+                                            </ComboBox>
+
+
+
+
+                                            <TextBlock Margin="0,5,0,0"  Grid.Row="3" Grid.Column="0" Text="触发类型选择：" VerticalAlignment="Center"/>
+                                            <ComboBox Margin="0,5,0,0"  Grid.Row="3" Grid.Column="1" Width="120" Height="27"  SelectedIndex="{Binding PCIModel.TriggerType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <ComboBoxItem Content="边沿触发"/>
+                                                <ComboBoxItem Content="脉冲触发"/>
+                                            </ComboBox>
+                                            <TextBlock  HorizontalAlignment="Right" Grid.Row="3" Grid.Column="3" Text="触发方向选择：" VerticalAlignment="Center" Margin="10,5,0,0"/>
+                                            <ComboBox Margin="0,5,0,0"  Width="120" Grid.Row="3" Grid.Column="4" Height="27" SelectedIndex="{Binding PCIModel.TriggerDir,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <ComboBoxItem Content="负向触发"/>
+                                                <ComboBoxItem Content="正向触发"/>
+                                                <ComboBoxItem Content="正负向触发"/>
+                                            </ComboBox>
+
+
+                                            <TextBlock Margin="0,5,0,0"  Grid.Row="4" HorizontalAlignment="Right" Grid.Column="0" Text="触发电平：" VerticalAlignment="Center"/>
+                                            <TextBox Margin="0,5,0,0"  Grid.Row="4" Grid.Column="1" Text="{Binding PCIModel.TrigLevelVolt,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Height="27" />
+                                            <TextBlock Margin="0,5,0,0"  Grid.Row="4" Grid.Column="2" Text="mV" VerticalAlignment="Center"/>
+                                            <TextBlock HorizontalAlignment="Right" Grid.Row="4" Grid.Column="3" Text="触发灵敏窗：" VerticalAlignment="Center" Margin="10,5,0,0"/>
+                                            <TextBox Margin="0,5,0,0"  Grid.Row="4" Grid.Column="4" Text="{Binding PCIModel.TrigWindow,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Height="27" />
+                                            <TextBlock Grid.Row="4" Grid.Column="5" Text="us" VerticalAlignment="Center" Margin="2,5,0,0"/>
+
+                                            <TextBlock Margin="0,5,0,0"  HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0" Text="时钟源选择：" VerticalAlignment="Center"/>
+                                            <ComboBox Margin="0,5,0,0"  Grid.Row="5" Grid.Column="1" Width="120" Height="27"  SelectedIndex="{Binding PCIModel.ClockSource,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <ComboBoxItem Content="内时钟"/>
+                                                <ComboBoxItem Content="外时钟"/>
+                                            </ComboBox>
+
+                                            <TextBlock  HorizontalAlignment="Right" Grid.Row="5" Grid.Column="3" Text="允许时钟输出到CLKOUT：" VerticalAlignment="Center" Margin="10,5,0,0"/>
+                                            <CheckBox   Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" Margin="0,5,0,0" IsChecked="{Binding PCIModel.bClockOutput,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+
+
+                                        </Grid>
+                                        <DataGrid Height="400" Margin="10,10,0,0"  Grid.Row="6" Grid.ColumnSpan="6" Grid.Column="0"  AutoGenerateColumns="False" ItemsSource="{Binding PCIModel.Channels}">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="通道号" Binding="{Binding ChannelNum}"/>
+                                                <DataGridTextColumn Header="通道名称" Binding="{Binding Name}"/>
+                                                <DataGridCheckBoxColumn Header="通道使能" Binding="{Binding ChannelSign}"/>
+                                                <DataGridTemplateColumn Header="通道增益">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <ComboBox Width="120" Height="26" SelectedIndex="{Binding ChannelGains}">
+                                                                <ComboBoxItem Content="1倍增益"/>
+                                                                <ComboBoxItem Content="2倍增益"/>
+                                                                <ComboBoxItem Content="4倍增益"/>
+                                                                <ComboBoxItem Content="8倍增益"/>
+                                                            </ComboBox>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </WrapPanel>
+
+                                </GroupBox>
+                            </Grid>
+                        </ScrollViewer>
+                    </GroupBox>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <GroupBox DataContext="{Binding ElementName=ACUList,Path=SelectedItem,Mode=TwoWay}" Grid.Row="0" Header="ACU设备板卡通道与模拟通道对应表" BorderBrush="Green" BorderThickness="2">
+                            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding PCIModel.Channels}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="通道索引号" Binding="{Binding ChannelNum}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="通道名称" Binding="{Binding Name}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="通道组号" Binding="{Binding BelongGroupIndex}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="板卡通道名称" Binding="{Binding PCIChannelName}" IsReadOnly="True"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </GroupBox>
+
+                        <GroupBox Margin="0,5,0,0" Grid.Row="1" Header="管段列表" BorderBrush="Green" BorderThickness="2">
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <GroupBox Header="原始管段列表" BorderBrush="Green" BorderThickness="2">
+                                        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding PipesManager.Pipes}">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="管段索引号" Binding="{Binding PipeIndex}" IsReadOnly="True"/>
+                                                <DataGridTextColumn Header="管段名称" Binding="{Binding PipeName}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="传播速度0" Binding="{Binding Speed0}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="传播速度1" Binding="{Binding Speed1}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="传播时间门限" Binding="{Binding TimeThreshold}" IsReadOnly="False"/>
+                                                <DataGridTextColumn Header="管段长度" Binding="{Binding PipeLength}" IsReadOnly="False"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </GroupBox>
+                                    <GroupBox Header="组合管段列表"  BorderBrush="Green" BorderThickness="2">
+                                        <StackPanel>
+                                            <WrapPanel Orientation="Horizontal">
+                                                <Button Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,2,4,2" Content="增加组合管段" Command="{Binding PipesManager.AddCombinePipe}"/>
+                                                <Button Height="25" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,2,4,2" Content="保存修改" Command="{Binding PipesManager.SavePipeSet}"/>
+                                            </WrapPanel>
+
+                                            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding PipesManager.CombinePipes}">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="管段索引号" Binding="{Binding PipeIndex}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="管段名称" Binding="{Binding PipeName}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="传播速度0" Binding="{Binding Speed0}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="传播速度1" Binding="{Binding Speed1}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="传播时间门限" Binding="{Binding TimeThreshold}" IsReadOnly="False"/>
+                                                    <DataGridTextColumn Header="管段长度" Binding="{Binding PipeLength}" IsReadOnly="False"/>
+                                                    <DataGridTemplateColumn>
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Grid>
+                                                                    <Button Height="25" Width="80" Content="删除" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.PipesManager.RemoveCombimePipe}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+
+                                    </GroupBox>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </GroupBox>
+                    </Grid>
+                </Grid>
+            </Grid>-->
+            
+            <Grid x:Name="panel3" Visibility="Hidden">
+
+                <GroupBox BorderBrush="Green" BorderThickness="1.5" Header="OPCClient代理列表">
+                    <StackPanel Orientation="Vertical">
+                        <Grid>
+                            <Button Height="26" Width="100" Content="保存修改" Command="{Binding OPCProxysManager.SaveOPCProxy}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="4,0,0,0"/>
+                            <Button Height="26" Width="100" Content="添加" Command="{Binding OPCProxysManager.AddOPCProxy}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="104,0,0,0"/>
+                        </Grid>
+
+                        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding OPCProxysManager.OPCProxysCollection}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="GUID" Binding="{Binding GUID}"/>
+                                <DataGridTextColumn Header="Sign" Binding="{Binding Sign}"/>
+                                <DataGridTextColumn Header="是否连接" Binding="{Binding IsLinked}"/>
+                                <DataGridTextColumn Header="描述" Binding="{Binding Description}"/>
+                                <DataGridTemplateColumn Header="操作">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Height="26" Width="80" Content="删除" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ISafeConfigSetPage},Mode= FindAncestor},Path=DataContext.OPCProxysManager.RemoveOPCProxy}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </GroupBox>
+
+
+            </Grid>
+        </Grid>
+
+     
+    </Grid>
+</Page>

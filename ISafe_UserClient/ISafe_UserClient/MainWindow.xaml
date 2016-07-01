@@ -1,0 +1,85 @@
+﻿<Window x:Class="ISafe_UserClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="Images/user.ico"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True"
+        xmlns:MyCtrl="clr-namespace:SARControlLib;assembly=SARControlLib"
+        xmlns:My="clr-namespace:ISafe_UserClient"
+        Title="ISafe系统监控与展示界面" MinHeight="350" MinWidth="525">
+    <Grid>
+        <Grid.Resources>
+            <My:BoolToVisibility x:Key="convert1"/>
+        </Grid.Resources>
+
+        <MyCtrl:MainWindowBack Margin="0,30,0,0"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <MyCtrl:SARMenuBar Grid.Row="0" MenuTitle="iSafe管道泄漏检测系统用户监控界面"  HorizontalAlignment="Stretch" Height="100" SARMenuClick="SARMenuBar_SARMenuClick"/>
+            <MyCtrl:EmptyBack Grid.Row="2" Margin="6,0,6,6"/>
+            <Grid Margin="20,10,20,20" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden">
+
+                </Frame>
+            </Grid>
+        </Grid>
+
+
+        <MyCtrl:SARMaxMin Height="27" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,0" SARMinClick="SARMaxMin_SARMinClick" SARCloseClick="SARMaxMin_SARCloseClick"/>
+
+        <Grid Visibility="{Binding IsSure, Converter={StaticResource convert1}}" >
+            <Border VerticalAlignment="Center" x:Name="border1" HorizontalAlignment="Stretch" Height="160"  Background="Red" >
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation RepeatBehavior="Forever" Storyboard.TargetName="border1" Storyboard.TargetProperty="Opacity" From="1" To="0.5" Duration="0:0:1"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Border.Triggers>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Text="发生泄漏，请注意！" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="泄漏发生管段：" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding LeakPipe}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="泄漏发生时刻：" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding LeakTime}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="泄漏信息：" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding LeakMSG}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="报警类型：" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding LeakType}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"/>
+                    <Button Grid.ColumnSpan="2" Command="{Binding SureCommand}" Grid.Row="5" Height="26" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Content="确定"/>
+                </Grid>
+            </Border>
+
+
+
+        </Grid>
+
+    </Grid>
+
+</Window>

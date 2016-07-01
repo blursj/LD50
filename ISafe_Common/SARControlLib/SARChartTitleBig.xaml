@@ -1,0 +1,291 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SARControlLib.SARChartTitleBig"
+	x:Name="UserControl"
+	d:DesignWidth="330" d:DesignHeight="51">
+	
+	<Grid
+		Height="51"
+		Width="330"
+		Background="#00ffffff"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+		<Grid.Resources>
+			<RadialGradientBrush
+				x:Key="Brush1"
+				Center="0.5709779179810726,1.4177818028328912"
+				GradientOrigin="0.5709779179810726,1.4177818028328912"
+				RadiusX="0.5709779179810726"
+				RadiusY="0.7427232050362511">
+				<RadialGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FFffffff"
+							Offset="0" />
+						<GradientStop
+							Color="#FF1c4987"
+							Offset="1" />
+					</GradientStopCollection>
+				</RadialGradientBrush.GradientStops>
+			</RadialGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush2"
+				StartPoint="2.2058823529411766,-0.0000058708420919602525"
+				EndPoint="2.2058823529411766,1">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FF021327"
+							Offset="0" />
+						<GradientStop
+							Color="#FF1F4D8D"
+							Offset="0.8944439888000488" />
+						<GradientStop
+							Color="#FF215294"
+							Offset="0.9555559754371643" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush3"
+				StartPoint="2.588235294117647,0.4599978844369023"
+				EndPoint="1.6470588235294117,1.2160008462252392">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FF021327"
+							Offset="0" />
+						<GradientStop
+							Color="#FF1F4D8D"
+							Offset="0.8944439888000488" />
+						<GradientStop
+							Color="#FF215294"
+							Offset="0.9555559754371643" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush4"
+				StartPoint="0.6,-0.47445684190116827"
+				EndPoint="0.6,1.2140340576953308">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FFffffff"
+							Offset="0" />
+						<GradientStop
+							Color="#00ffffff"
+							Offset="0.9111109972000122" />
+						<GradientStop
+							Color="#00ffffff"
+							Offset="0.9722219705581665" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush5"
+				StartPoint="1.6808510638297873,0.1760237796688923"
+				EndPoint="2.2808510638297874,1.0889892579886151">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FFb2c2d7"
+							Offset="0" />
+						<GradientStop
+							Color="#0Cabbcd3"
+							Offset="0.9444440007209778" />
+						<GradientStop
+							Color="#00abbcd3"
+							Offset="0.9944440126419067" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+			<RadialGradientBrush
+				x:Key="Brush6"
+				Center="1.5681932924630364,0.005028027934956655"
+				GradientOrigin="1.5681932924630364,0.005028027934956655"
+				RadiusX="1.4219111141958503"
+				RadiusY="1.8976282777179472">
+				<RadialGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FFffffff"
+							Offset="0" />
+						<GradientStop
+							Color="#00ffffff"
+							Offset="0.9944440126419067" />
+					</GradientStopCollection>
+				</RadialGradientBrush.GradientStops>
+			</RadialGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush7"
+				StartPoint="1.5319148936170213,0.1760237796688923"
+				EndPoint="1.5319148936170213,1">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FFb2c2d7"
+							Offset="0" />
+						<GradientStop
+							Color="#FFABBCD3"
+							Offset="0.8888890147209167" />
+						<GradientStop
+							Color="#FFabbcd3"
+							Offset="0.949999988079071" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush8"
+				StartPoint="0.011811023622047244,1"
+				EndPoint="0.9291338582677166,1">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#00ffffff"
+							Offset="0" />
+						<GradientStop
+							Color="#FFffffff"
+							Offset="0.31666699051856995" />
+						<GradientStop
+							Color="#FAffffff"
+							Offset="0.32777801156044006" />
+						<GradientStop
+							Color="#00ffffff"
+							Offset="0.9833329916000366" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+			<ImageBrush
+				x:Key="Brush9"
+				Stretch="UniformToFill"
+				TileMode="Tile"
+				ViewportUnits="Absolute"
+				ImageSource="Resources/images/SARChartTitleBigTexture0.png"
+				Viewport="0,0,96,96" />
+		</Grid.Resources>
+		<Grid
+			x:Name="层_1"
+			Height="51"
+			Width="330">
+			<Path
+				Margin="6,3.915308713912964,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="43.084691286087036"
+				Width="317"
+				Stretch="Fill"
+				Opacity="1"
+				Data="M 301.5400390625,47 C306.7646484375,47 311,42.7646484375 311,37.5400390625 311,37.5400390625 311,21 311,21 313.5,4 323,7 323,7 321.25,3.125 317,4 317,4 317,4 12,4 12,4 12,4 8.6875,3.5 6,7 6,7 15.5,4 18,21 18,21 18,37.5400390625 18,37.5400390625 18,42.7646484375 22.2353515625,47 27.4599609375,47 27.4599609375,47 301.5400390625,47 301.5400390625,47 z"
+				Fill="{StaticResource Brush1}">
+				<Path.BitmapEffect>
+					<BitmapEffectGroup />
+				</Path.BitmapEffect>
+			</Path>
+			<Path
+				Margin="0,6.740777015686035,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="9.259222984313965"
+				Width="17"
+				Stretch="Fill"
+				Opacity="0.7803921568627452"
+				Data="M 0,16 C0,16 8,-4.833251953125 17,16 17,16 0,16 0,16 z"
+				Fill="{StaticResource Brush2}" />
+			<Path
+				Margin="312,6.740777015686035,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="9.259222984313965"
+				Width="17"
+				Stretch="Fill"
+				Opacity="1"
+				Data="M 312,16 C312,16 320,-4.833251953125 329,16 329,16 312,16 312,16 z"
+				Fill="{StaticResource Brush3}" />
+			<Path
+				Margin="7,3.975308656692505,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="21.024691343307495"
+				Width="315"
+				Stretch="Fill"
+				Opacity="1"
+				Data="M 309,25 C309,25 309,21 309,21 311.5,4 322,7 322,7 320.625,3.875 315,4 315,4 315,4 14,4 14,4 14,4 9.6875,3.5 7,7 7,7 16.5,4 19,21 19,21 19,25 19,25 19,25 309,25 309,25 z"
+				Fill="{StaticResource Brush4}" />
+			<Path
+				Margin="315.5,4.762688636779785,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="11.237311363220215"
+				Width="14.6875"
+				Stretch="Fill"
+				Opacity="1"
+				Data="M 330.1875,16 C330.1875,16 328.7626953125,16 328.7626953125,16 327.3828125,12.959228515625 322.0625,2.25 315.5,7.5625 322.875,-2 330.1875,16 330.1875,16 z"
+				Fill="{StaticResource Brush5}" />
+			<Path
+				Margin="27,47,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="1"
+				Width="254"
+				Stretch="Fill"
+				Opacity="0.2784313725490196"
+				Data="M 27,47 C27,47 281,47 281,47 281,47 281,48 281,48 281,48 27,48 27,48 27,48 27,47 27,47 z"
+				Fill="{StaticResource Brush8}" />
+			<Path
+				Margin="8.14990234375,6.797862529754639,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="40.20213747024536"
+				Width="20.31005859375"
+				Stretch="Fill"
+				Opacity="0.5294117647058824"
+				Data="M 8.14990234375,6.81494140625 C11.105224609375,7.015869140625 16.255859375,9.138671875 18,21 18,21 18,37.5400390625 18,37.5400390625 18,42.7646484375 22.2353515625,47 27.4599609375,47 27.4599609375,47 28.4599609375,47 28.4599609375,47 23.2353515625,47 19,42.7646484375 19,37.5400390625 19,37.5400390625 19,21 19,21 17.0361328125,7.6463623046875 10.7548828125,6.63525390625 8.14990234375,6.81494140625 z"
+				Fill="{StaticResource Brush6}">
+				<Path.BitmapEffect>
+					<BitmapEffectGroup />
+				</Path.BitmapEffect>
+			</Path>
+			<Path
+				Margin="-1,5.762688636779785,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="11.237311363220215"
+				Width="14.6875"
+				Stretch="Fill"
+				Opacity="0.6313725490196078"
+				Data="M -1,17 C-1,17 0.4249267578125,17 0.4249267578125,17 1.8048095703125,13.959228515625 7.125,3.25 13.6875,8.5625 6.3125,-1 -1,17 -1,17 z"
+				Fill="{StaticResource Brush7}" />
+			<TextBlock  x:Name="txtTitle"
+				Margin="112,14,0,0"
+				HorizontalAlignment="left"
+				VerticalAlignment="top"
+				Opacity="1"
+				TextWrapping="Wrap"
+				FontSize="16"
+				FontFamily="MicrosoftYaHei"
+				TextAlignment="left"
+				Foreground="#ffffff"
+				Text="二维等高线图">
+				<TextBlock.BitmapEffect>
+					<BitmapEffectGroup />
+				</TextBlock.BitmapEffect>
+			</TextBlock>
+			<Path
+				Margin="27,47,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="1"
+				Width="254"
+				Stretch="Fill"
+				Opacity="0.03"
+				Data="M 27,47 C27,47 281,47 281,47 281,47 281,48 281,48 281,48 27,48 27,48 27,48 27,47 27,47 z"
+				Fill="{StaticResource Brush9}" />
+		</Grid>
+	</Grid>
+
+</UserControl>

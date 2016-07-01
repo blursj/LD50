@@ -1,0 +1,589 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SARControlLib.SARBoard"
+	x:Name="UserControl"
+	d:DesignWidth="817" d:DesignHeight="71">
+
+	<Grid
+		Height="71"
+		Width="817"
+		Background="#00ffffff"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+		<Grid.Resources>
+			<SolidColorBrush
+				x:Key="Brush1"
+				Color="#030b16" />
+			<SolidColorBrush
+				x:Key="Brush2"
+				Color="#3786de" />
+			<RadialGradientBrush
+				x:Key="Brush3"
+				Center="0.7543859649122807,0.6744186046511628"
+				GradientOrigin="0.7543859649122807,0.6744186046511628"
+				RadiusX="1.3397109717653506"
+				RadiusY="0.5274402707122092">
+				<RadialGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FF257ece"
+							Offset="0" />
+						<GradientStop
+							Color="#FF021428"
+							Offset="0.9666669964790344" />
+						<GradientStop
+							Color="#FF021327"
+							Offset="0.9777780175209045" />
+					</GradientStopCollection>
+				</RadialGradientBrush.GradientStops>
+			</RadialGradientBrush>
+			<LinearGradientBrush
+				x:Key="Brush4"
+				StartPoint="0.12280701754385964,-0.4478126264776532"
+				EndPoint="0.43191849557976975,0.961734235299683">
+				<LinearGradientBrush.GradientStops>
+					<GradientStopCollection>
+						<GradientStop
+							Color="#FFffffff"
+							Offset="0" />
+						<GradientStop
+							Color="#00ffffff"
+							Offset="0.9944440126419067" />
+					</GradientStopCollection>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+		</Grid.Resources>
+		<Grid
+			x:Name="层_1"
+			Height="71"
+			Width="817">
+			<Path
+				Margin="1,1,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Height="69"
+				Width="815"
+				Stretch="Fill"
+				Opacity="1"
+				Data="M 1,67 C1,68.5 2.5,70 4,70 4,70 813,70 813,70 814.5,70 816,68.5 816,67 816,67 816,4 816,4 816,2.5 814.5,1 813,1 813,1 4,1 4,1 2.5,1 1,2.5 1,4 1,4 1,67 1,67 z"
+				Stroke="#3996ff"
+				StrokeThickness="1"
+				Fill="{StaticResource Brush1}">
+				<Path.BitmapEffect>
+					<BitmapEffectGroup />
+				</Path.BitmapEffect>
+			</Path>
+			<Grid x:Name="Boards" Margin="5,12,25,12">
+				<Grid x:Name="Board" HorizontalAlignment="Left" Width="61" MouseLeave="Board_MouseLeave" MouseEnter="Board_MouseEnter" MouseUp="Board_MouseUp" Focusable="False">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board1" HorizontalAlignment="Left" Margin="66,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board2" HorizontalAlignment="Left" Margin="132,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board3" HorizontalAlignment="Left" Margin="198,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board4" HorizontalAlignment="Left" Margin="264,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board5" HorizontalAlignment="Left" Margin="330,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board6" HorizontalAlignment="Left" Margin="396,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board7" HorizontalAlignment="Left" Margin="462,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board8" HorizontalAlignment="Left" Margin="528,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board9" HorizontalAlignment="Left" Margin="594,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board10" HorizontalAlignment="Left" Margin="660,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+				<Grid x:Name="Board11" HorizontalAlignment="Left" Margin="726,0,0,0" Width="61">
+					<Grid
+						Height="47"
+						Opacity="1"
+						VerticalAlignment="Top" Visibility="Hidden">
+						<Path
+							Margin="0,0,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="47"
+							Width="61"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 0,5 C0,2.5 3.5,0 6,0 6,0 55,0 55,0 57.5,0 61,3.5 61,6 61,6 61,41 61,41 61,43.5 57.5,47 55,47 55,47 6,47 6,47 3.5,47 0,43.5 0,41 0,41 0,5 0,5 z"
+							Stroke="#010913"
+							StrokeThickness="1"
+							Fill="{StaticResource Brush2}" />
+						<Path
+							Margin="2,2,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Height="43"
+							Width="57"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M 2,7 C2,4.5 4.5,2 7,2 7,2 54,2 54,2 56.5,2 59,4.5 59,7 59,7 59,40 59,40 59,42.5 56.5,45 54,45 54,45 7,45 7,45 4.5,45 2,42.5 2,40 2,40 2,7 2,7 z"
+							Fill="{StaticResource Brush3}" />
+					</Grid>
+					<Image
+						Height="41"
+						Margin="4,3,4,0"
+						VerticalAlignment="top"
+						Source="Resources/images/boardimg.png" />
+					<Path
+						Margin="2,2,2,0"
+						VerticalAlignment="Top"
+						Height="29.03"
+						Stretch="Fill"
+						Opacity="1"
+						Data="M 7,43.029998779296875 C20.84234619140625,26.9765625 51.11163330078125,23.3017578125 64,22.360000610351562 64,22.360000610351562 64,19 64,19 64,16.5 61.5,14 59,14 59,14 12,14 12,14 9.5,14 7,16.5 7,19 7,19 7,43.029998779296875 7,43.029998779296875 z"
+						Fill="{StaticResource Brush4}" Visibility="Hidden" />
+				</Grid>
+			</Grid>
+		</Grid>
+	</Grid>
+
+</UserControl>

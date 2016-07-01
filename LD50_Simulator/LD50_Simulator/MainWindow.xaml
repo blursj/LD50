@@ -1,0 +1,205 @@
+﻿<Window x:Class="LD50_Simulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:MyCtrl ="clr-namespace:SARControlLib;assembly=SARControlLib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True" 
+        Icon="Image/samulator.ico"
+        Title="MainWindow">
+    
+    <Grid>
+        <MyCtrl:MainWindowBack x:Name="background"  Margin="0,50,0,0"/>
+        <MyCtrl:SARMenuBar x:Name="menu"  VerticalAlignment="Top" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
+        <MyCtrl:SARMaxMin Height="27" Width="80" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,0" SARMinClick="SARMaxMin_SARMinClick_1" SARCloseClick="SARMaxMin_SARCloseClick_1"/>
+        <MyCtrl:EmptyBack Margin="6,90,6,6"/>
+
+        <Grid Margin="20,100,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Foreground="Orange" Grid.Row="0" Grid.Column="0" BorderBrush="Blue" BorderThickness="1.5">
+                <GroupBox.Header>
+                    <TextBlock Text="压力背景数据选择" Foreground="Red" FontSize="15" FontWeight="Bold"/>
+                </GroupBox.Header>
+                <ScrollViewer>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <CheckBox IsChecked="{Binding ConfigManager.IsSelectedWavData}" Grid.Row="0" Content="是否采用外部波形文件作为压力背景" Foreground="White" Margin="5" FontSize="14.5"/>
+
+                        <Border Height="2" Grid.Row="1" HorizontalAlignment="Stretch" Background="White"/>
+
+                        <TextBlock Grid.Row="2" Text=" * 不同管输量模拟" Margin="5" FontSize="14.5" Foreground="Red"/>
+
+                        <Grid Grid.Row="3" IsEnabled="{Binding ConfigManager.IsSelectedFlow}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Grid.Column="2" Text="管输量选择：" VerticalAlignment="Center" Margin="10,3,3,3"/>
+                            <ComboBox ItemsSource="{Binding ConfigManager.Selected_PipeFlows}" SelectedIndex="{Binding ConfigManager.SelectedFlowModel,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Height="26" Width="120"/>
+                            <TextBlock  Grid.Column="0" Text="输送介质：" VerticalAlignment="Center" Margin="20,3,3,3"/>
+                            <ComboBox SelectedIndex="{Binding ConfigManager.SelectedMedium}"  Grid.Column="1" Height="26" Width="120">
+                                <ComboBoxItem Content="汽油"/>
+                                <ComboBoxItem Content="柴油"/>
+                                <ComboBoxItem Content="混输"/>
+                            </ComboBox>
+                            <Button Command="{Binding ConfigManager.FlowSureCommand}" Grid.Column="4" Height="26" Width="80" Content="确定" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                        </Grid>
+
+                        <TextBlock Grid.Row="5" Text=" * 载入外部压力波形文件数据" FontSize="14.5" Foreground="Red" Margin="5"/>
+
+                        <Grid Grid.Row="6" IsEnabled="{Binding ConfigManager.IsSelectedWavData}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="AUTO"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ItemsControl VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" ItemsSource="{Binding ConfigManager.PipeSites}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Grid Margin="20,15,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding SiteName}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="压力数据源文件路径" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+                                            <TextBox Text="{Binding PreSensorManager.FilePath}"  Grid.Row="0" Grid.Column="2" Height="26" Width="320" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                                            <Button Command="{Binding PreSensorManager.LoadFile}" CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=DataContext}" Grid.Row="0" Grid.Column="3" Height="26" Width="80" Content="载入" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                                        </Grid>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+
+
+            </GroupBox>
+
+            <GroupBox Grid.Row="0" Grid.Column="1" Margin="5,0,5,0" BorderBrush="Blue" BorderThickness="2">
+                <GroupBox.Header>
+                    <TextBlock Text="模拟压力信号曲线" Foreground="Red" FontSize="15" FontWeight="Bold"/>
+                </GroupBox.Header>
+                <MyCtrl:SARChart SARChartTitle="压力曲线" x:Name="MyChart" Margin="10"/>
+            </GroupBox>
+
+            <GroupBox Foreground="Orange" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0" BorderBrush="Blue" BorderThickness="2">
+                <GroupBox.Header>
+                    <TextBlock Text="泄漏模拟" Foreground="Red" FontSize="15" FontWeight="Bold"/>
+                </GroupBox.Header>
+
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="泄漏发生管段：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <ComboBox ItemsSource="{Binding ConfigManager.Pipes}" SelectedItem="{Binding ConfigManager.SelectedPipe,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" DisplayMemberPath="PipeName" Grid.Row="0" Grid.Column="1" Height="26" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="泄漏参照站点：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <ComboBox ItemsSource="{Binding ConfigManager.ReferPipeSites}" SelectedItem="{Binding ConfigManager.ReferPipeSite,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" DisplayMemberPath="SiteName" Grid.Row="2" Grid.Column="1" Height="26" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="泄漏距离：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding ConfigManager.ReferLength}"  Grid.Row="4" Grid.Column="1" Height="26" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                    <TextBlock Grid.Row="4" Grid.Column="2" Text="米" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="泄漏持续时间：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding ConfigManager.LeakTimeMin}"  Grid.Row="6" Grid.Column="1" Height="26" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                    <TextBlock Grid.Row="6" Grid.Column="2" Text="分钟" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="泄漏孔径：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <ComboBox SelectedIndex="{Binding ConfigManager.SelectedLeakMode,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Grid.Row="8" Grid.Column="1" Height="26" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
+                        <ComboBoxItem Content="3mm"/>
+                        <ComboBoxItem Content="6mm"/>
+                        <ComboBoxItem Content="12mm"/>
+                        <ComboBoxItem Content="20mm"/>
+                    </ComboBox>
+                    <Grid Grid.Column="3" Grid.RowSpan="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Command="{Binding ConfigManager.StartCommand}" Content="开始运行" Foreground="White" Grid.Row="1"  Height="30" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0"/>
+
+                        <Button Command="{Binding ConfigManager.StopCommand}" Content="结束运行" Foreground="White" Grid.Row="3"  Height="30" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0"/>
+
+                        <Button Command="{Binding ConfigManager.SendLeakCommand}" Content="发送泄漏信号" Foreground="White" Grid.Row="5"  Height="30" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0"/>
+
+                    </Grid>
+                    <!--<TextBlock Grid.Row="6" Grid.Column="0" Text="泄漏信号模拟" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <Button Content="发送泄漏信号" Foreground="White" Grid.Row="6" Grid.Column="1" Height="26" Width="85" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>-->
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Foreground="Orange" Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" BorderBrush="Blue" BorderThickness="2">
+                <GroupBox.Header>
+                    <TextBlock Text="运行信息" Foreground="Red" FontSize="15" FontWeight="Bold"/>
+                </GroupBox.Header>
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical" x:Name="MSGCtr"/>
+                </ScrollViewer>
+            </GroupBox>
+
+        </Grid>
+
+    </Grid>
+</Window>

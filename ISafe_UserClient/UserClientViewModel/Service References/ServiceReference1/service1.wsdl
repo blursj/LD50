@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserClientServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IUser_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ACUServer" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUser_BeatHeart_InputMessage">
+    <wsdl:part name="parameters" element="tns:BeatHeart" />
+  </wsdl:message>
+  <wsdl:message name="IUser_BeatHeart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BeatHeartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetGraphic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGraphic" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetGraphic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGraphicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_SetGraphic_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetGraphic" />
+  </wsdl:message>
+  <wsdl:message name="IUser_SetGraphic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetGraphicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_SetDolPointValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDolPointValue" />
+  </wsdl:message>
+  <wsdl:message name="IUser_SetDolPointValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDolPointValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_ResetPreSensorThresh_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPreSensorThresh" />
+  </wsdl:message>
+  <wsdl:message name="IUser_ResetPreSensorThresh_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPreSensorThreshResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GraphicChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GraphicChanged" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GraphicChanged_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GraphicChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PreLeakCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PreLeakCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PreLeakCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PreLeakCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_OPCProxyLinkCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OPCProxyLinkCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_OPCProxyLinkCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OPCProxyLinkCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PressureDateCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PressureDateCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PressureDateCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PressureDateCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PLCPreLinkingCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PLCPreLinkingCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PLCPreLinkingCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PLCPreLinkingCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_DolLocationCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:DolLocationCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_DolLocationCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:DolLocationCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_LocationCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:LocationCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_LocationCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:LocationCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PreMaskCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PreMaskCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PreMaskCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PreMaskCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PreThreshCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PreThreshCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IUser_PreThreshCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PreThreshCallBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_CallBackDOLPHINData_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:CallBackDOLPHINData" />
+  </wsdl:message>
+  <wsdl:message name="IUser_CallBackDOLPHINData_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:CallBackDOLPHINDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUser">
+    <wsdl:operation name="BeatHeart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/BeatHeart" message="tns:IUser_BeatHeart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/BeatHeartResponse" message="tns:IUser_BeatHeart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Login" message="tns:IUser_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/LoginResponse" message="tns:IUser_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGraphic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetGraphic" message="tns:IUser_GetGraphic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetGraphicResponse" message="tns:IUser_GetGraphic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGraphic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/SetGraphic" message="tns:IUser_SetGraphic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/SetGraphicResponse" message="tns:IUser_SetGraphic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDolPointValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/SetDolPointValue" message="tns:IUser_SetDolPointValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/SetDolPointValueResponse" message="tns:IUser_SetDolPointValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPreSensorThresh">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/ResetPreSensorThresh" message="tns:IUser_ResetPreSensorThresh_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/ResetPreSensorThreshResponse" message="tns:IUser_ResetPreSensorThresh_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GraphicChanged">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GraphicChanged" message="tns:IUser_GraphicChanged_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GraphicChangedResponse" message="tns:IUser_GraphicChanged_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreLeakCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/PreLeakCallBack" message="tns:IUser_PreLeakCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/PreLeakCallBackResponse" message="tns:IUser_PreLeakCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OPCProxyLinkCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/OPCProxyLinkCallBack" message="tns:IUser_OPCProxyLinkCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/OPCProxyLinkCallBackResponse" message="tns:IUser_OPCProxyLinkCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PressureDateCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/PressureDateCallBack" message="tns:IUser_PressureDateCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/PressureDateCallBackResponse" message="tns:IUser_PressureDateCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PLCPreLinkingCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/PLCPreLinkingCallBack" message="tns:IUser_PLCPreLinkingCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/PLCPreLinkingCallBackResponse" message="tns:IUser_PLCPreLinkingCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DolLocationCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/DolLocationCallBack" message="tns:IUser_DolLocationCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/DolLocationCallBackResponse" message="tns:IUser_DolLocationCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/LocationCallBack" message="tns:IUser_LocationCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/LocationCallBackResponse" message="tns:IUser_LocationCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreMaskCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/PreMaskCallBack" message="tns:IUser_PreMaskCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/PreMaskCallBackResponse" message="tns:IUser_PreMaskCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreThreshCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/PreThreshCallBack" message="tns:IUser_PreThreshCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/PreThreshCallBackResponse" message="tns:IUser_PreThreshCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CallBackDOLPHINData">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/CallBackDOLPHINData" message="tns:IUser_CallBackDOLPHINData_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/CallBackDOLPHINDataResponse" message="tns:IUser_CallBackDOLPHINData_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IUser" type="tns:IUser">
+    <wsp:PolicyReference URI="#NetTcpBinding_IUser_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="BeatHeart">
+      <soap12:operation soapAction="http://tempuri.org/IUser/BeatHeart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IUser/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGraphic">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GetGraphic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGraphic">
+      <soap12:operation soapAction="http://tempuri.org/IUser/SetGraphic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDolPointValue">
+      <soap12:operation soapAction="http://tempuri.org/IUser/SetDolPointValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPreSensorThresh">
+      <soap12:operation soapAction="http://tempuri.org/IUser/ResetPreSensorThresh" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GraphicChanged">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GraphicChanged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreLeakCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/PreLeakCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPCProxyLinkCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/OPCProxyLinkCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PressureDateCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/PressureDateCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLCPreLinkingCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/PLCPreLinkingCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DolLocationCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/DolLocationCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/LocationCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreMaskCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/PreMaskCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreThreshCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IUser/PreThreshCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallBackDOLPHINData">
+      <soap12:operation soapAction="http://tempuri.org/IUser/CallBackDOLPHINData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserClientServer">
+    <wsdl:port name="NetTcpBinding_IUser" binding="tns:NetTcpBinding_IUser">
+      <soap12:address location="net.tcp://localhost:9695/acuservice" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9695/acuservice</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

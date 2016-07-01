@@ -1,0 +1,432 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:SARControlLib"
+	mc:Ignorable="d"
+	x:Class="SARControlLib.EmptyBack"
+	x:Name="UserControl"
+	d:DesignWidth="1384" d:DesignHeight="737">
+    <UserControl.Resources>
+        <SolidColorBrush
+			x:Key="Brush4"
+			Color="#041a32" />
+        <SolidColorBrush
+			x:Key="Brush5"
+			Color="#041a32" />
+        <ImageBrush
+			x:Key="Brush6"
+			Stretch="UniformToFill"
+			TileMode="Tile"
+			ViewportUnits="Absolute"
+			ImageSource="Resources/images/TabBarPattern0.png"
+			Viewport="0,0,128,110" />
+        <RadialGradientBrush
+			x:Key="Brush20"
+			Center="0.47619047619047616,1.1111111111111112"
+			GradientOrigin="0.47619047619047616,1.1111111111111112"
+			RadiusX="0.5079365079365079"
+			RadiusY="1.1111111111111112">
+            <RadialGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop
+						Color="#FF257ece"
+						Offset="0" />
+                    <GradientStop
+						Color="#00257ece"
+						Offset="0.9611110091209412" />
+                    <GradientStop
+						Color="#00257ece"
+						Offset="0.9722219705581665" />
+                </GradientStopCollection>
+            </RadialGradientBrush.GradientStops>
+        </RadialGradientBrush>
+        <LinearGradientBrush
+			x:Key="Brush19"
+			StartPoint="0.5079365079365079,0"
+			EndPoint="0.5079365079365079,0.8461538461538461">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop
+						Color="#FFe6f1fb"
+						Offset="0" />
+                    <GradientStop
+						Color="#00e6f1fb"
+						Offset="0.9555559754371643" />
+                    <GradientStop
+						Color="#00e6f1fb"
+						Offset="0.9666669964790344" />
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <ImageBrush
+			x:Key="Brush21"
+			Stretch="UniformToFill"
+			TileMode="Tile"
+			ViewportUnits="Absolute"
+			ImageSource="Resources/images/TabBarTexture1.png"
+			Viewport="0,0,5,5" />
+    </UserControl.Resources>
+
+    <Grid
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	
+	Background="#00ffffff"
+	>
+        <Grid.Resources>
+            <SolidColorBrush
+			x:Key="Brush1"
+			Color="#041a32" />
+            <SolidColorBrush
+			x:Key="Brush2"
+			Color="#041a32" />
+            <ImageBrush
+			x:Key="Brush3"
+			Stretch="UniformToFill"
+			TileMode="Tile"
+			ViewportUnits="Absolute"
+			ImageSource="Resources/images/TabBarTexture0.png"
+			Viewport="0,0,5,5" />
+            <SolidColorBrush
+			x:Key="Brush4"
+			Color="#041a32" />
+            <SolidColorBrush
+			x:Key="Brush5"
+			Color="#041a32" />
+            <ImageBrush
+			x:Key="Brush6"
+			Stretch="UniformToFill"
+			TileMode="Tile"
+			ViewportUnits="Absolute"
+			ImageSource="Resources/images/TabBarPattern0.png"
+			Viewport="0,0,128,110" />
+            <LinearGradientBrush
+			x:Key="Brush7"
+			StartPoint="0.5934959349593496,-188"
+			EndPoint="0.4146341463414634,-188">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00031121"
+						Offset="0" />
+                        <GradientStop
+						Color="#ED031121"
+						Offset="0.4555560052394867" />
+                        <GradientStop
+						Color="#FF031121"
+						Offset="0.48888900876045227" />
+                        <GradientStop
+						Color="#00031121"
+						Offset="0.9944440126419067" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush8"
+			StartPoint="0.5284552845528455,-187"
+			EndPoint="0.37398373983739835,-187">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0" />
+                        <GradientStop
+						Color="#EDffffff"
+						Offset="0.44999998807907104" />
+                        <GradientStop
+						Color="#FFffffff"
+						Offset="0.4833329916000366" />
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0.9888889789581299" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush9"
+			StartPoint="0.5934959349593496,-109"
+			EndPoint="0.4146341463414634,-109">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00031121"
+						Offset="0" />
+                        <GradientStop
+						Color="#ED031121"
+						Offset="0.4555560052394867" />
+                        <GradientStop
+						Color="#FF031121"
+						Offset="0.48888900876045227" />
+                        <GradientStop
+						Color="#00031121"
+						Offset="0.9944440126419067" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush10"
+			StartPoint="0.5284552845528455,-108"
+			EndPoint="0.37398373983739835,-108">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0" />
+                        <GradientStop
+						Color="#EDffffff"
+						Offset="0.23" />
+                        <GradientStop
+						Color="#FFffffff"
+						Offset="0.4833329916000366" />
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0.9888889789581299" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush11"
+			StartPoint="0.5934959349593496,-30"
+			EndPoint="0.4146341463414634,-30">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00031121"
+						Offset="0" />
+                        <GradientStop
+						Color="#ED031121"
+						Offset="0.4555560052394867" />
+                        <GradientStop
+						Color="#FF031121"
+						Offset="0.48888900876045227" />
+                        <GradientStop
+						Color="#00031121"
+						Offset="0.9944440126419067" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush12"
+			StartPoint="0.5284552845528455,-29"
+			EndPoint="0.37398373983739835,-29">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0" />
+                        <GradientStop
+						Color="#EDffffff"
+						Offset="0.44999998807907104" />
+                        <GradientStop
+						Color="#FFffffff"
+						Offset="0.4833329916000366" />
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0.9888889789581299" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush13"
+			StartPoint="0.5934959349593496,128"
+			EndPoint="0.4146341463414634,128">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00031121"
+						Offset="0" />
+                        <GradientStop
+						Color="#ED031121"
+						Offset="0.4555560052394867" />
+                        <GradientStop
+						Color="#FF031121"
+						Offset="0.48888900876045227" />
+                        <GradientStop
+						Color="#00031121"
+						Offset="0.9944440126419067" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush14"
+			StartPoint="0.5284552845528455,129"
+			EndPoint="0.37398373983739835,129">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0" />
+                        <GradientStop
+						Color="#EDffffff"
+						Offset="0.44999998807907104" />
+                        <GradientStop
+						Color="#FFffffff"
+						Offset="0.4833329916000366" />
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0.9888889789581299" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush15"
+			StartPoint="0.5934959349593496,207"
+			EndPoint="0.4146341463414634,207">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00031121"
+						Offset="0" />
+                        <GradientStop
+						Color="#ED031121"
+						Offset="0.4555560052394867" />
+                        <GradientStop
+						Color="#FF031121"
+						Offset="0.48888900876045227" />
+                        <GradientStop
+						Color="#00031121"
+						Offset="0.9944440126419067" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush16"
+			StartPoint="0.5284552845528455,208"
+			EndPoint="0.37398373983739835,208">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0" />
+                        <GradientStop
+						Color="#EDffffff"
+						Offset="0.44999998807907104" />
+                        <GradientStop
+						Color="#FFffffff"
+						Offset="0.4833329916000366" />
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0.9888889789581299" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush17"
+			StartPoint="0.5934959349593496,49"
+			EndPoint="0.4146341463414634,49">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00031121"
+						Offset="0" />
+                        <GradientStop
+						Color="#ED031121"
+						Offset="0.4555560052394867" />
+                        <GradientStop
+						Color="#FF031121"
+						Offset="0.48888900876045227" />
+                        <GradientStop
+						Color="#00031121"
+						Offset="0.9944440126419067" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush18"
+			StartPoint="0.5284552845528455,50"
+			EndPoint="0.37398373983739835,50">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0" />
+                        <GradientStop
+						Color="#EDffffff"
+						Offset="0.44999998807907104" />
+                        <GradientStop
+						Color="#FFffffff"
+						Offset="0.4833329916000366" />
+                        <GradientStop
+						Color="#00ffffff"
+						Offset="0.9888889789581299" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush
+			x:Key="Brush19"
+			StartPoint="0.5079365079365079,0"
+			EndPoint="0.5079365079365079,0.8461538461538461">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#FFe6f1fb"
+						Offset="0" />
+                        <GradientStop
+						Color="#00e6f1fb"
+						Offset="0.9555559754371643" />
+                        <GradientStop
+						Color="#00e6f1fb"
+						Offset="0.9666669964790344" />
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <RadialGradientBrush
+			x:Key="Brush20"
+			Center="0.47619047619047616,1.1111111111111112"
+			GradientOrigin="0.47619047619047616,1.1111111111111112"
+			RadiusX="0.5079365079365079"
+			RadiusY="1.1111111111111112">
+                <RadialGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop
+						Color="#FF257ece"
+						Offset="0" />
+                        <GradientStop
+						Color="#00257ece"
+						Offset="0.9611110091209412" />
+                        <GradientStop
+						Color="#00257ece"
+						Offset="0.9722219705581665" />
+                    </GradientStopCollection>
+                </RadialGradientBrush.GradientStops>
+            </RadialGradientBrush>
+            <ImageBrush
+			x:Key="Brush21"
+			Stretch="UniformToFill"
+			TileMode="Tile"
+			ViewportUnits="Absolute"
+			ImageSource="Resources/images/TabBarTexture1.png"
+			Viewport="0,0,5,5" />
+        </Grid.Resources>
+        <Grid
+		x:Name="层_1">
+            <Path 
+				Stretch="Fill"
+				Opacity="1"
+				Data="M145,14 C145,9 150,4 155,4 155,4 1494.0428,4 1494.0428,4 1499.0428,4 1504.0428,9 1504.0428,14 1504.0428,14 1504.0428,719 1504.0428,719 1504.0428,724 1499.0428,729 1494.0428,729 1494.0428,729 155,729 155,729 150,729 145,724 145,719 145,719 145,14&#xd;&#xa;145,14 z"
+				Stroke="#010913"
+				StrokeThickness="1"
+				Fill="{StaticResource Brush4}" Margin="8">
+                <Path.BitmapEffect>
+                    <BitmapEffectGroup />
+                </Path.BitmapEffect>
+            </Path>
+            <Border
+			 Visibility="Visible"
+                CornerRadius="5"
+				Opacity="0.27058823529411763"
+				BorderBrush ="#a5ccf8"
+				BorderThickness="1"
+				Background ="{StaticResource Brush5}">
+            </Border>
+            <Border Visibility="Visible"
+				CornerRadius="5"
+				Opacity="0.050980392156862744"
+				Background="{StaticResource Brush6}">
+            </Border>
+        </Grid>
+    </Grid>
+
+</UserControl>
